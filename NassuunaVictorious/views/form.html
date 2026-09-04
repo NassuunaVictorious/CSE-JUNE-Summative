@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+        }
+
+        .col1 {
+            background-color: rgb(153, 204, 50);
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .col1 img {
+            width: 160px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .col1::after {
+            content: "Refugee Support Program";
+            font-size: 1.4rem;
+            font-weight: normal;
+        }
+
+        .col2 {
+            width: 65%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col2 h1 {
+            color: #4b6b23;
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .col2 .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+        }
+
+        .col3, .col4 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .gender {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .radio {
+            display: flex;
+            gap: 40px;
+        }
+
+        .radio {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        
+
+        .gender{
+            width:100%;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #666;
+            outline: none;
+        }
+
+       
+
+        button {
+            background-color: rgb(153, 204, 50);
+            color: white;
+            border: none;
+            padding: 12px 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .col1 img{
+            width:200px;
+            height:200px;
+            border-radius: 50%;
+
+        }
+        .col4 button{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col1">
+            <img src="/Users/user/Desktop/summative_test/CSE-JUNE-Summative/assessment/logo & colors/fca-logo.jpg">
+        </div>
+        <div class="col2">
+            <h1> BENEFICIARY REGISTRATION FORM</h1>
+            <form method="POST">
+                <div class="row">
+                    <div class="col3">
+                        <div class="field">
+                            <label for="firstname">First Name:</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Enter your First name" required>
+                        </div>
+                        
+                        <div class="field">
+                            <label for="dob">Date of birth:</label>
+                            <input type="date" id="dob" name="dob" required>
+                        </div>
+                    </div>
+
+                    <div class="col4">
+                        <div class="field">
+                            <label for="lastname">Last Name:</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Enter your Last name" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="placeofbirth">Place of birth:</label>
+                            <input type="text" id="placeofbirth" name="placeofbirth" placeholder="Enter your place of residence" required>
+                        </div>
+                    </div>
+
+                    <div class="gender">
+                        <label>Gender</label>
+                        <div class="radio">
+                            <div class="radio">
+                                <input type="radio" id="male" name="gender" value="Male">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="radio">
+                                <input type="radio" id="female" name="gender" value="Female">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col3">
+                        <div class="field">
+                            <label for="nationality">Nationality:</label>
+                            <select id="nationality" name="nationality" required>
+                                <option value="" disabled selected>- Select Nationality -</option>
+                                <option value="Ugandan">Ugandan</option>
+                                <option value="Kenyan">Kenyan</option>
+                                <option value="Tanzanian">Tanzanian</option>
+                                <option value="Burundian">Burundian</option>
+                                <option value="Rwandese">Rwandese</option>
+                                <option value="Somali">Somali</option>
+                                <option value="South Sudanese">South Sudanese</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="settlement">Settlement camp</label>
+                            <select id="settlement" name="settlement" required>
+                                <option value="" disabled selected>- Select settlement camp -</option>
+                                <option value="Gulu settlement camp">Gulu settlement camp</option>
+                                <option value="Arua settlement camp">Arua settlement camp</option>
+                                <option value="Mbarara settlement camp">Mbarara settlement camp</option>
+                                <option value="Kasese settlement camp">Kasese settlement camp</option>
+                                <option value="Busia settlement camp">Busia settlement camp</option>
+                                <option value="Mbale settlement camp">Mbale settlement camp</option>
+                                <option value="Kigezi settlement camp">Kigezi settlement camp</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col4">
+                        <div class="field">
+                            <label for="maritalstatus">Marital Status:</label>
+                            <select id="maritalstatus" name="maritalstatus" required>
+                                <option value="" disabled selected>- Select Marital status -</option>
+                                <option value="Single">Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Divorced">Divorced</option>
+                                <option value="Widowed">Widowed</option>
+                                <option value="Separated">Separated</option>
+                            </select>
+
+                        </div>
+
+                        <div class="field">
+                            <label for="joindate">Date of joining Settlement camp</label>
+                            <input type="date" id="joindate" name="joindate" required>
+                        </div>
+                        <div class="button">
+                        <button type="submit">Register</button>
+                    </div>
+                    </div>
+
+                    
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
