@@ -43,7 +43,7 @@ app.get('/form', (req, res) => {
   res.render('form');
 });
 
-app.post('/register', postForm);
+app.post('/form', postForm);
 
 app.use((req, res) => {
   res.status(404).send('Route not found');

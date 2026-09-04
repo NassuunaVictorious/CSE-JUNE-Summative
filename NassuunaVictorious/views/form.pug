@@ -1,9 +1,11 @@
+pug
 doctype html
 html
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Document
+    title Beneficiary Registration
+
     style.
       * {
         box-sizing: border-box;
@@ -11,12 +13,14 @@ html
         padding: 0;
         font-family: 'Arial Narrow', Arial, sans-serif;
       }
+
       body {
         display: flex;
         min-height: 100vh;
         position: relative;
         color: rgb(56, 87, 35);
       }
+
       .alert-box {
         display: none;
         position: fixed;
@@ -33,6 +37,7 @@ html
         align-items: center;
         gap: 15px;
       }
+
       .alert-close {
         cursor: pointer;
         background: none;
@@ -41,10 +46,12 @@ html
         font-size: 1.2rem;
         font-weight: bold;
       }
+
       .row {
         display: flex;
         width: 100%;
       }
+
       .col1 {
         background-color: rgb(153, 204, 50);
         width: 35%;
@@ -56,24 +63,28 @@ html
         color: white;
         text-align: center;
       }
+
       .col1 img {
         width: 200px;
         height: 200px;
         border-radius: 50%;
         margin-bottom: 20px;
       }
+
       .col1::after {
         content: "Refugee Support Program";
         font-family: 'Agency FB', Impact, sans-serif;
         font-size: 1.6rem;
         font-weight: normal;
       }
+
       .col2 {
         width: 65%;
         padding: 40px;
         display: flex;
         flex-direction: column;
       }
+
       .col2 h1 {
         color: #4b6b23;
         text-align: center;
@@ -82,19 +93,24 @@ html
         margin-bottom: 30px;
         letter-spacing: 1px;
       }
+
       .col2 form {
         color: rgb(56, 87, 35);
       }
+
       .col2 .row {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px 30px;
       }
-      .col3, .col4 {
+
+      .col3,
+      .col4 {
         display: flex;
         flex-direction: column;
         gap: 20px;
       }
+
       .gender {
         grid-column: span 2;
         display: flex;
@@ -102,25 +118,30 @@ html
         gap: 8px;
         width: 100%;
       }
+
       .radio {
         display: flex;
         align-items: center;
         gap: 8px;
       }
+
       .radio-group {
         display: flex;
         gap: 40px;
       }
+
       .field {
         display: flex;
         flex-direction: column;
         gap: 5px;
       }
+
       label {
         font-size: 1rem;
         font-weight: bold;
         color: rgb(56, 87, 35);
       }
+
       input[type="text"],
       input[type="date"],
       select {
@@ -133,12 +154,15 @@ html
         outline: none;
         font-family: 'Arial Narrow', Arial, sans-serif;
       }
+
       .valid-border {
         border: 2px solid #4b6b23 !important;
       }
+
       .invalid-border {
         border: 2px solid red !important;
       }
+
       button {
         background-color: rgb(153, 204, 50);
         color: white;
@@ -151,9 +175,11 @@ html
         cursor: pointer;
         letter-spacing: 1px;
       }
+
       .col4 button {
         width: 100%;
       }
+
   body
     div#successAlert.alert-box
       span Beneficiary registered successfully!
@@ -161,39 +187,75 @@ html
 
     .row
       .col1
-        img(src='/images/fca-logo.JPG')
+        img(src='/images/fca-logo.JPG' alt='FCA Logo')
+
       .col2
         h1 BENEFICIARY REGISTRATION FORM
-        form#regForm(method='POST')
+
+        form#regForm(method='POST' action='/form')
+
           .row
+
             .col3
               .field
                 label(for='firstname') First Name:
-                input#firstname(type='text' name='firstname' placeholder='Enter your First name')
+                input#firstname(
+                  type='text'
+                  name='firstname'
+                  placeholder='Enter your First name'
+                )
+
               .field
                 label(for='dob') Date of birth:
-                input#dob(type='date' name='dob')
+                input#dob(
+                  type='date'
+                  name='dob'
+                )
+
             .col4
               .field
                 label(for='lastname') Last Name:
-                input#lastname(type='text' name='lastname' placeholder='Enter your Last name')
+                input#lastname(
+                  type='text'
+                  name='lastname'
+                  placeholder='Enter your Last name'
+                )
+
               .field
                 label(for='placeofbirth') Place of birth:
-                input#placeofbirth(type='text' name='placeofbirth' placeholder='Enter your place of residence')
+                input#placeofbirth(
+                  type='text'
+                  name='placeofbirth'
+                  placeholder='Enter your place of residence'
+                )
+
             .gender
               label Gender
+
               .radio-group
                 .radio
-                  input#male(type='radio' name='gender' value='Male')
+                  input#male(
+                    type='radio'
+                    name='gender'
+                    value='Male'
+                  )
                   label(for='male') Male
+
                 .radio
-                  input#female(type='radio' name='gender' value='Female' checked='')
+                  input#female(
+                    type='radio'
+                    name='gender'
+                    value='Female'
+                    checked
+                  )
                   label(for='female') Female
+
             .col3
               .field
                 label(for='nationality') Nationality:
+
                 select#nationality(name='nationality')
-                  option(value='' disabled='' selected='') - Select Nationality -
+                  option(value='' disabled selected) - Select Nationality -
                   option(value='Ugandan') Ugandan
                   option(value='Kenyan') Kenyan
                   option(value='Tanzanian') Tanzanian
@@ -201,10 +263,12 @@ html
                   option(value='Rwandese') Rwandese
                   option(value='Somali') Somali
                   option(value='South Sudanese') South Sudanese
+
               .field
                 label(for='settlement') Settlement camp
+
                 select#settlement(name='settlement')
-                  option(value='' disabled='' selected='') - Select settlement camp -
+                  option(value='' disabled selected) - Select settlement camp -
                   option(value='Gulu settlement camp') Gulu settlement camp
                   option(value='Arua settlement camp') Arua settlement camp
                   option(value='Mbarara settlement camp') Mbarara settlement camp
@@ -212,25 +276,33 @@ html
                   option(value='Busia settlement camp') Busia settlement camp
                   option(value='Mbale settlement camp') Mbale settlement camp
                   option(value='Kigezi settlement camp') Kigezi settlement camp
+
             .col4
               .field
                 label(for='maritalstatus') Marital Status:
+
                 select#maritalstatus(name='maritalstatus')
-                  option(value='' disabled='' selected='') - Select Marital status -
+                  option(value='' disabled selected) - Select Marital status -
                   option(value='Single') Single
                   option(value='Married') Married
                   option(value='Divorced') Divorced
                   option(value='Widowed') Widowed
                   option(value='Separated') Separated
+
               .field
                 label(for='joindate') Date of joining Settlement camp
-                input#joindate(type='date' name='joindate')
+
+                input#joindate(
+                  type='date'
+                  name='joindate'
+                )
+
               .button
                 button(type='submit') Register
 
     script.
       const form = document.getElementById('regForm');
-      const successAlert = document.getElementById('successAlert');
+
       const firstname = document.getElementById('firstname');
       const lastname = document.getElementById('lastname');
       const placeofbirth = document.getElementById('placeofbirth');
@@ -240,19 +312,21 @@ html
       const maritalstatus = document.getElementById('maritalstatus');
       const joindate = document.getElementById('joindate');
 
-      function validateField(element, isFieldValid) {
-        if (isFieldValid === true) {
-          element.className = 'valid-border';
+      function validateField(element, valid) {
+        if (valid) {
+          element.classList.remove('invalid-border');
+          element.classList.add('valid-border');
         } else {
-          element.className = 'invalid-border';
+          element.classList.remove('valid-border');
+          element.classList.add('invalid-border');
         }
       }
 
-      form.onsubmit = async function(event) {
-        event.preventDefault(); 
-        
+      form.addEventListener('submit', function(event) {
+
         let formIsValid = true;
-        const registrationDate = new Date(); 
+
+        const today = new Date();
 
         if (firstname.value.trim().length >= 2) {
           validateField(firstname, true);
@@ -275,37 +349,62 @@ html
           formIsValid = false;
         }
 
-        if (nationality.value !== "") {
+        if (nationality.value !== '') {
           validateField(nationality, true);
         } else {
           validateField(nationality, false);
           formIsValid = false;
         }
 
-        if (settlement.value !== "") {
+        if (settlement.value !== '') {
           validateField(settlement, true);
         } else {
           validateField(settlement, false);
           formIsValid = false;
         }
 
-        if (maritalstatus.value !== "") {
+        if (maritalstatus.value !== '') {
           validateField(maritalstatus, true);
         } else {
           validateField(maritalstatus, false);
           formIsValid = false;
         }
 
-        if (dob.value !== "") {
-          const birthDateObj = new Date(dob.value);
-          if (birthDateObj < registrationDate) {
-             validateField(dob, true);
+        if (dob.value !== '') {
+          const birthDate = new Date(dob.value);
+
+          if (birthDate < today) {
+            validateField(dob, true);
           } else {
-             validateField(dob, false);
-             formIsValid = false;
+            validateField(dob, false);
+            formIsValid = false;
           }
         } else {
           validateField(dob, false);
           formIsValid = false;
         }
+
+        if (joindate.value !== '') {
+          const joinDate = new Date(joindate.value);
+
+          if (joinDate <= today) {
+            validateField(joindate, true);
+          } else {
+            validateField(joindate, false);
+            formIsValid = false;
+          }
+        } else {
+          validateField(joindate, false);
+          formIsValid = false;
+        }
+
+        if (!formIsValid) {
+          event.preventDefault();
+          return;
+        }
+
+      
+
+      function closeAlert() {
+        document.getElementById('successAlert').style.display = 'none';
       }
